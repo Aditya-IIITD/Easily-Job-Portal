@@ -1,0 +1,54 @@
+<div
+  class="my-5 mx-auto d-flex flex-wrap align-items-centre justify-content-around gap-5"
+  style="width: 73%"
+>
+  <%jobs.map((job)=>{%>
+  <div class="card bg-light shadow jobCard" style="width: 18rem">
+    <img
+      src="<%= job.imageUrl %>"
+      class="card-img-top p-2"
+      style="height: 150px"
+      alt="..."
+    />
+    <div class="card-body" style="max-height: 88px">
+      <h5 class="card-title"><%= job.companyName %></h5>
+      <p class="card-text"><%= job.jobDesignation %></p>
+    </div>
+    <ul class="list d-flex flex-wrap flex-column px-4">
+      <li class="list-group-item">
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/2991/2991231.png"
+          alt="loc"
+          id="location"
+          style="max-height: 25px; overflow: hidden"
+        /><%= job.jobLocation %>
+      </li>
+      <li class="list-group-item">
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/7370/7370261.png"
+          alt="ruppee"
+          style="max-height: 25px; overflow: hidden"
+        /><%= job.salary %>lpa
+      </li>
+      <li class="list-group-item mt-2 mx-2 d-flex flex-wrap gap-1" id="skills">
+        <%job.skills.map((skill)=>{ %>
+        <span
+          class="p-1"
+          style="
+            border: 0.5px solid #198754;
+            border-radius: 5px;
+            color: #198754;
+            font-weight: 500;
+          "
+        >
+          <%= skill %>
+        </span>
+        <%})%>
+      </li>
+    </ul>
+    <div class="card-body mx-auto">
+      <a href="/jobs/<%= job.id%>" class="btn btn-primary">View Details</a>
+    </div>
+  </div>
+  <%})%>
+</div>

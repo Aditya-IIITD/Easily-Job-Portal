@@ -1,0 +1,80 @@
+<div id="homeContainer" class="mx-auto d-flex align-items-center">
+  <div class="w-50 d-flex flex-column justify-content-evenly">
+    <p
+      class="display-6"
+      style="font-weight: 480; font-size: 2.9vw; color: rgb(89, 89, 229)"
+    >
+      A comprehensive platform for reliable
+    </p>
+    <p style="font-size: 2.3vw; font-weight: 400">
+      Job oppurtunities and internships.
+    </p>
+    <p style="font-size: 1.8vw; font-weight: 400">Get Discovered. Get Hired</p>
+    <div class="d-flex gap-4">
+      <a class="btn" href="/jobs">I'm A Job Seeker</a>
+      <a id="registerbtn" class="btn">I'm A Recruiter</a>
+    </div>
+  </div>
+
+  <div class="w-50 p-3" id="frame">
+    <div
+      id="carouselExampleSlidesOnly"
+      class="carousel-fade"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="/images/IT.jpg" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item">
+          <img src="/images/doctor.jpg" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item">
+          <img src="/images/Machine.jpg" class="d-block w-100" alt="..." />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="formContainer" class="formContainer d-none">
+  <div>
+    <h2 class="display-6">Experience Easily!</h2>
+    <div id="cross" class="cross-icon">&#10006;</div>
+    <hr />
+    <form class="registerForm" action="/newUser" method="post">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required />
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required />
+      <button type="submit">Register</button>
+    </form>
+    <hr />
+    <div class="registerFooter">
+      <div>
+        <h5>Already Registered?</h5>
+        <a class="btn btn-primary" href="/login">Login</a>
+      </div>
+      <div class="socialIcons">
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/4423/4423697.png"
+          alt="whatsapp"
+        />
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/1384/1384063.png"
+          alt="insta"
+        />
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/2504/2504923.png"
+          alt="linkedin"
+        />
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/5968/5968830.png"
+          alt="twitter"
+        />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,179 @@
+<div
+  class="h-100 w-50 mx-auto my-5 rounded shadow-lg p-3"
+  style="cursor: default"
+>
+  <%if(updateJob){%>
+  <h1 class="display-6 text-center">Update job</h1>
+  <%} else {%>
+  <h1 class="display-6 text-center">Post a new job</h1>
+  <%}%>
+  <%if(updateJob){%>
+    <form action="/jobs/update/<%= updateJob.id%>" method="post">
+  <%}else{%>
+    <form action="/newjob" method="post">
+  <%}%>
+  <form action="/newjob" method="post">
+    <select
+      class="form-select my-3"
+      aria-label="Default select example"
+      name="jobCategory"
+    >
+      <%if(updateJob){%>
+      <option selected>Select new job category</option>
+      <%}else{%>
+      <option selected>Select job category</option>
+      <%}%>
+
+      <option value="Tech">Tech</option>
+      <option value="Non-Tech">Non-Tech</option>
+    </select>
+
+    <select class="form-select my-3" name="jobDesignation">
+      <%if(updateJob){%>
+      <option selected disabled>Select new job designation</option>
+      <%}else{%>
+      <option selected disabled>Select job designation</option>
+      <%}%>
+
+      <option value="HR">HR</option>
+      <option value="SDE">SDE</option>
+      <option value="DevOps">DevOps</option>
+      <option value="MERN Developer">MERN Developer</option>
+      <option value="MEAN Developer">MEAN Developer</option>
+      <option value="Java Developer">Java Developer</option>
+      <option value="Front-end Developer">Front-end Developer</option>
+      <option value="Back-end Developer">Back-end Developer</option>
+      <option value="Full-Stack Developer">Full-Stack Developer</option>
+    </select>
+
+    <div class="mb-3">
+      <label for="jobLocation" class="form-label">Enter Job Location</label>
+      <%if(updateJob){%>
+      <input
+        type="text"
+        class="form-control"
+        id="jobLocation"
+        name="jobLocation"
+        value="<%=updateJob.jobLocation%>"
+      />
+      <%}else{%>
+      <input
+        type="text"
+        class="form-control"
+        id="jobLocation"
+        name="jobLocation"
+      />
+      <%}%>
+    </div>
+
+    <div class="input-group my-3">
+      <span class="input-group-text" id="inputGroup-sizing-default"
+        >Company Name</span
+      >
+      <%if(updateJob){%>
+      <input
+        type="text"
+        class="form-control"
+        name="companyName"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default"
+        value="<%= updateJob.companyName%>"
+      />
+      <%} else{%>
+      <input
+        type="text"
+        class="form-control"
+        name="companyName"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default"
+      />
+      <%}%>
+    </div>
+
+    <div class="input-group my-3">
+      <span class="input-group-text" id="inputGroup-sizing-default"
+        >Company logo URL</span
+      >
+      <%if(updateJob){%>
+      <input
+        type="url"
+        class="form-control"
+        name="imageUrl"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default"
+        value="<%= updateJob.imageUrl%>"
+      />
+      <%}else{%>
+      <input
+        type="url"
+        class="form-control"
+        name="imageUrl"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default"
+      />
+      <%}%>
+    </div>
+
+    <div class="input-group mb-3">
+      <%if(updateJob){%>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter Salary"
+        name="salary"
+        value="<%= updateJob.salary%>"
+      />
+      <span class="input-group-text">Total Positions</span>
+      <input
+        type="number"
+        name="numberOfOpenings"
+        class="form-control"
+        placeholder="total no of openings"
+        value="<%= updateJob.openings%>"
+      />
+      <%} else{%>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter Salary"
+        name="salary"
+      />
+      <span class="input-group-text">Total Positions</span>
+      <input
+        type="number"
+        name="numberOfOpenings"
+        class="form-control"
+        placeholder="total no of openings"
+      />
+      <%}%>
+    </div>
+
+    <div class="input-group mb-3">
+      <select
+        required
+        multiple
+        class="form-select mb-3"
+        size="10"
+        name="skills"
+        aria-label="Size 3 select example"
+        style="height: 100px"
+      >
+        <option selected disabled>Open this select menu</option>
+        <option value="React">React</option>
+        <option value="NodeJS">NodeJS</option>
+        <option value="Angular">Angular</option>
+        <option value="MongoDB">MongoDB</option>
+        <option value="SQL">SQL</option>
+        <option value="Express">Express</option>
+        <option value="Java">Java</option>
+        <option value="Springboot">Springboot</option>
+        <option value="C++">C++</option>
+        <option value="DSA">Data structures and algo</option>
+      </select>
+      <span class="input-group-text">Apply By</span>
+      <input type="date" class="form-control" name="date" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100 my-2">Submit</button>
+  </form>
+</div>

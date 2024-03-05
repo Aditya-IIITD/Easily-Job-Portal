@@ -1,0 +1,197 @@
+<div
+  class="card mx-auto mt-4 p-2 shadow-lg"
+  style="width: 60%; cursor: default"
+>
+  <h1 class="display-6 text-center">
+    <span style="color: tomato; font-weight: 400">
+      <%= job?.jobDesignation %>
+    </span>
+    oppertunity in <%= job?.jobLocation %> at
+    <span class="text-primary" style="font-weight: 400"
+      ><%= job?.companyName %></span
+    >
+  </h1>
+  <div class="mx-auto text-center">
+    <div class="card-body">
+      <h5 class="card-title"><%= job?.companyName %></h5>
+      <p class="card-text"><%= job?.jobDesignation %></p>
+    </div>
+
+    <div class="card-body" style="text-align: left">
+      <p class="m-0">
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/1865/1865269.png"
+          alt="location"
+          style="height: 20px"
+          class="mx-1"
+        />
+        <span><%= job?.jobLocation %></span>
+      </p>
+      <p class="m-0">
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/7370/7370261.png"
+          alt="Salary"
+          style="height: 20px"
+          class="mx-1"
+        /><span><%= job?.salary %>lpa</span>
+      </p>
+      <p class="m-0">
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/3073/3073484.png"
+          alt="date"
+          style="height: 17px"
+          class="mx-1"
+        />
+        <span>Apply By <%= job?.postedDate %></span>
+      </p>
+      <p class="m-0">
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/3138/3138992.png"
+          alt="openings"
+          style="height: 18px"
+          class="mx-1"
+        /><span style="margin-left: 4px"
+          >Number of openings <%= job?.openings %></span
+        >
+      </p>
+      <p class="m-0 text-danger">
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/476/476863.png"
+          alt="applicants"
+          style="height: 20px"
+          class="mx-1"
+        /><span style="margin-left: 2px"
+          >Applicants: <%= job?.applicants %></span
+        >
+      </p>
+    </div>
+
+    <div class="container mb-2">
+      <% job?.skills.map((item)=>{%>
+      <button class="btn btn-sm btn-outline-info"><%= item%></button>
+      <%})%>
+    </div>
+    <div class="card-body">
+      <!-- <a class="btn btn-primary px-5" id="applyBtn">Apply Now</a> -->
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#applyModal"
+      >
+        Apply Now
+      </button>
+    </div>
+
+    <div
+      class="my-2 p-2 text-center rounded mx-auto"
+      style="
+        max-width: 240px;
+        border: 1px solid #198754;
+        color: white;
+        background-color: #198754;
+      "
+    >
+      <span>Posted: <%= job?.postedDate %></span>
+    </div>
+    <%if(locals.userEmail){%>
+    <div class="bg-light">
+      <a href="/jobs/update/<%=job?.id%>"
+        ><img
+          src="https://cdn-icons-png.flaticon.com/128/1828/1828270.png"
+          style="height: 25px; cursor: pointer"
+      /></a>
+      <a href="/jobs/delete/<%=job?.id%>"
+        ><img
+          src="https://cdn-icons-png.flaticon.com/128/216/216658.png"
+          style="height: 25px; cursor: pointer"
+      /></a>
+    </div>
+    <%}%>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="applyModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="applyModalTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Easily</h5>
+        <button
+          type="button"
+          class="close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="display-6 text-center" style="font-size: 25px">
+          Apply in less than 1 minute
+        </p>
+        <form
+          class="w-75 mx-auto"
+          action="/applyJob/<%=job?.id%>"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Name</span>
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              placeholder="enter your name"
+              required
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon2">Email</span>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="enter your email"
+              name="email"
+              required
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon3">Contact</span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="+91"
+              name="contact"
+              required
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon4">Resume</span>
+            <input type="file" class="form-control" name="resume" required />
+          </div>
+          <button
+            type="submit"
+            id="SubmitBtn"
+            class="m-0 btn text-white"
+            style="background-color: #198754"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

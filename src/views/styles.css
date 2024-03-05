@@ -1,0 +1,154 @@
+#mainContainer {
+  padding: 0;
+}
+/* Card styles */
+.jobCard {
+  transition: 0.1s;
+  cursor: default;
+}
+.jobCard:hover {
+  /* box-shadow: 5px 5px 10px -5px rgb(0, 0, 0, 0.5),
+    -5px -5px 10px -5px rgb(0, 0, 0, 0.5); */
+  transform: scale(1.01);
+}
+
+li > img {
+  height: 20px;
+}
+
+/* Login */
+
+#login {
+  /* border: 1px solid gray; */
+  padding: 20px;
+  border-radius: 20px;
+  /* box-shadow: 5px 5px 2px 0px rgb(13, 138, 233) inset, 5px 5px 10px -10px black; */
+}
+
+/* Home page */
+#homeContainer {
+  height: 45vw;
+  width: 80%;
+  /* background-color: #199fff; */
+}
+
+#homeContainer a {
+  background-color: #5959e5;
+  outline: 1px solid #5959e5;
+  border: none;
+  color: white;
+  padding: 1vh 1.7vw;
+  font-size: 1.6vw;
+}
+
+#homeContainer a:hover {
+  background-color: #3737c2;
+  outline: 1px solid #3737c2;
+}
+
+#frame img {
+  border-radius: 30px;
+}
+
+.formContainer {
+  border: 1px solid brown;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formContainer > div {
+  position: relative;
+  height: 72%;
+  width: 40%;
+  border-radius: 10px;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 15px;
+}
+.formContainer .cross-icon {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  cursor: default;
+}
+
+.registerForm {
+  height: 60%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.registerForm > label {
+  font-weight: 500;
+}
+.registerForm > input {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  border: none;
+  box-shadow: 1px 1px 5px -3px black, -1px -1px 5px -3px black;
+  outline: none;
+  /* box-sizing: border-box; */
+  padding: 5px 15px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.1s ease-in-out;
+}
+
+.registerForm > input:hover {
+  outline: 3px solid #5959e5;
+}
+
+.registerForm > button {
+  margin-top: 20px;
+  margin-bottom: 25px;
+  height: 40px;
+  width: 100px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  background-color: #ff2c90;
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+.registerForm > button:hover {
+  background-color: #ff0077;
+}
+
+.registerFooter {
+  /* border: 1px solid black; */
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+}
+
+.registerFooter a {
+  transform: scale(0.8);
+}
+
+.registerFooter > div {
+  display: flex;
+  align-items: center;
+}
+
+.registerFooter .socialIcons {
+  width: 30%;
+  /* border: 0.5px solid black; */
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.registerFooter .socialIcons img {
+  height: 28px;
+}
+
+/* Apply form container */
