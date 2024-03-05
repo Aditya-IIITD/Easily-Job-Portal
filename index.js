@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config();
 import Express from "express";
 import ejsLayouts from "express-ejs-layouts";
 import path from "path";
@@ -62,7 +64,7 @@ app.post(
 
 // statically exposing views
 app.use(Express.static("src/views"));
-
-app.listen(3100, () => {
+const PORT = process.env.PORT || 3100;
+app.listen(PORT, () => {
   console.log("Server is listening on 3100...");
 });
